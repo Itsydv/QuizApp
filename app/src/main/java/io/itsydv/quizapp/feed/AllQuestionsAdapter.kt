@@ -1,11 +1,10 @@
-package io.itsydv.quizapp
+package io.itsydv.quizapp.feed
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
 import io.itsydv.quizapp.databinding.ItemQuestionPreviewBinding
 import io.itsydv.quizapp.models.QuestionModel
 
@@ -48,7 +47,7 @@ class AllQuestionsAdapter(val listener: (QuestionModel) -> Unit): RecyclerView.A
             } else {
                 questionNum
             }
-            tvQuestion.text = question.question.text
+            tvQuestion.text = question.question.questionText
             val source = question.exams?.get(0) + " " + question.previousYearPapers?.get(0)
             tvQuestionSource.text = source
         }

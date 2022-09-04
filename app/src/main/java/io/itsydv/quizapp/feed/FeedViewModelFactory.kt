@@ -1,4 +1,4 @@
-package io.itsydv.quizapp
+package io.itsydv.quizapp.feed
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

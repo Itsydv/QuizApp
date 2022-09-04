@@ -1,15 +1,24 @@
 package io.itsydv.quizapp.models
 
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "questions")
 data class QuestionModel(
-    var questionIndex: Int?,
-    val chapters: ArrayList<String>?,
-    val exams: ArrayList<String>?,
+    var attempted: Boolean = false,
+    val chapters: ArrayList<String>? = arrayListOf(),
+    val exams: ArrayList<String>? = arrayListOf(),
+    @PrimaryKey(autoGenerate = false)
     val id: String,
     val options: ArrayList<Option>,
-    val previousYearPapers: ArrayList<String>?,
-    val question: ImageNText,
-    val solution: ImageNText,
-    val source: String?,
-    val subjects: ArrayList<String>?,
-    val type: String?
+    val previousYearPapers: ArrayList<String>? = arrayListOf(),
+    @Embedded
+    val question: Question,
+    var questionIndex: Int? = null,
+    @Embedded
+    val solution: Solution,
+    val source: String? = null,
+    val subjects: ArrayList<String>? = arrayListOf(),
+    val type: String? = null,
 )

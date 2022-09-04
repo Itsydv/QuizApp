@@ -18,3 +18,12 @@ class Utils {
                 "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css\" crossorigin=\"anonymous\">" +"<style>img{display: inline;height: auto;max-width: 100%;}</style>"
     }
 }
+
+sealed class Resource<T>(
+    val data: T? = null,
+    val message: String? = null
+) {
+    class Success<T>(data: T) : Resource<T>(data)
+    class Loading<T>(data: T? = null) : Resource<T>(data)
+    class Error<T>(message: String, data: T? = null) : Resource<T>(data, message)
+}

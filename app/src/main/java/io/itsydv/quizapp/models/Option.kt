@@ -1,8 +1,10 @@
 package io.itsydv.quizapp.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Option(
-    val id: String,
-    val image: String?,
+    @field:SerializedName("id") val optionId: String,
+    @field:SerializedName("image") val OptionImage: String? = null,
     val isCorrect: Boolean,
-    val text: String?
+    @field:SerializedName("text") val optionText: String? = null
 )

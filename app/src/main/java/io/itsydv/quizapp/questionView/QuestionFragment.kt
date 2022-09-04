@@ -1,4 +1,4 @@
-package io.itsydv.quizapp
+package io.itsydv.quizapp.questionView
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -15,8 +15,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import io.itsydv.quizapp.R
+import io.itsydv.quizapp.Utils
 import io.itsydv.quizapp.databinding.FragmentQuestionBinding
 import io.itsydv.quizapp.databinding.ItemOptionBinding
+import io.itsydv.quizapp.feed.FeedViewModel
+import io.itsydv.quizapp.feed.FeedViewModelFactory
+import io.itsydv.quizapp.loadData
 import io.itsydv.quizapp.models.Option
 import io.itsydv.quizapp.models.QuestionModel
 import kotlin.properties.Delegates
@@ -30,8 +35,6 @@ class QuestionFragment : Fragment() {
     private lateinit var selectedOption: Option
     private lateinit var selectedView: ItemOptionBinding
     private var answered = false
-
-//    private lateinit var optionsAdapter: OptionsAdapter
 
     private val model by activityViewModels<FeedViewModel> {
         FeedViewModelFactory(requireContext())
@@ -112,8 +115,12 @@ class QuestionFragment : Fragment() {
 
     private fun checkAnswer() {
         if (selectedOption.isCorrect) {
-            selectedView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.success)
-            selectedView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.success)
+            selectedView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.success
+            )
+            selectedView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.success
+            )
             streak++
             if (streak > 2) {
                 binding.includeStreak.rlStreak.visibility = View.VISIBLE
@@ -126,15 +133,23 @@ class QuestionFragment : Fragment() {
             question.options.forEachIndexed {index, option ->
                 if (option.isCorrect) {
                     val correctView = if (index == 0) binding.option1 else if (index == 1) binding.option2 else if (index == 2) binding.option3 else binding.option4
-                    correctView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.success)
+                    correctView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                        R.color.success
+                    )
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         correctView.tvOptionNumber.setTextColor(resources.getColor(R.color.textWhite, null))
                     }
-                    correctView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.success)
+                    correctView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                        R.color.success
+                    )
                 }
             }
-            selectedView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.danger)
-            selectedView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.danger)
+            selectedView.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.danger
+            )
+            selectedView.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.danger
+            )
         }
         binding.apply {
             btnCheckAnswer.text = getString(R.string.next_question)
@@ -152,8 +167,10 @@ class QuestionFragment : Fragment() {
             option4.wvOption.isEnabled = false
             tvSolutionText.visibility = View.VISIBLE
             wvSolution.visibility = View.VISIBLE
-            loadData(wvSolution, question.solution.text.toString())
+            loadData(wvSolution, question.solution.solutionText.toString())
         }
+        question.attempted = true
+        model.updateQuestion(question)
     }
 
     private fun showSuccess() {
@@ -169,18 +186,11 @@ class QuestionFragment : Fragment() {
 
     private fun displayQuestion() {
         binding.tvChapter.text = question.chapters?.joinToString(", ") ?: "General Question"
-//        val questionType = question.type!!.split("([A-Z])", " ").joinToString(" ") {
-//            it.lowercase(Locale.ROOT)
-//                .replaceFirstChar { Char ->
-//                    if (Char.isLowerCase()) Char.titlecase(Locale.getDefault()) else Char.toString() }
-//        }
         val questionNumberAndType = "Q${question.questionIndex!! + 1} (Single Choice)"
         val source = question.exams?.get(0) + " " + question.previousYearPapers?.get(0)
         binding.tvQuestionSource.text = source
         binding.tvQuestionNumberAndType.text = questionNumberAndType
-        loadData(binding.wvQuestion, Utils.JS_FILES + question.question.text!!)
-//        setupRecyclerView()
-//        optionsAdapter.differ.submitList(question.options)
+        loadData(binding.wvQuestion, Utils.JS_FILES + question.question.questionText!!)
     }
 
 
@@ -239,23 +249,33 @@ class QuestionFragment : Fragment() {
         selectedView = view
         if (!answered) {
             binding.btnCheckAnswer.isEnabled = true
-            binding.btnCheckAnswer.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.primaryColor)
+            binding.btnCheckAnswer.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.primaryColor
+            )
         }
         answered = true
-        view.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.primaryColor)
+        view.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+            R.color.primaryColor
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.tvOptionNumber.setTextColor(resources.getColor(R.color.textWhite, null))
         }
-        view.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.primaryColor)
+        view.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+            R.color.primaryColor
+        )
     }
 
     private fun deselectOption(options: ArrayList<ItemOptionBinding>) {
         options.forEach { option ->
-            option.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.shimmerDark)
+            option.llOption.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.shimmerDark
+            )
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 option.tvOptionNumber.setTextColor(resources.getColor(R.color.textColor, null))
             }
-            option.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.textWhite)
+            option.tvOptionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(),
+                R.color.textWhite
+            )
         }
     }
 
@@ -271,25 +291,9 @@ class QuestionFragment : Fragment() {
                 allowContentAccess = true
                 cacheMode = WebSettings.LOAD_CACHE_ONLY
             }
-            loadData(wvOption, Utils.JS_FILES + option.text!!)
+            loadData(wvOption, Utils.JS_FILES + option.optionText!!)
         }
     }
-
-//    private fun setupRecyclerView() {
-//        optionsAdapter = OptionsAdapter{ option, view ->
-//            val layout = view.findViewById<LinearLayout>(R.id.ll_option)
-//            layout.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.primaryColor)
-//            val optionNumber = view.findViewById<TextView>(R.id.tvOptionNumber)
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                optionNumber.setTextColor(resources.getColor(R.color.textWhite, null))
-//            }
-//            optionNumber.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.primaryColor)
-//        }
-//        binding.rvOptions.apply{
-//            layoutManager = LinearLayoutManager(requireContext())
-//            adapter = optionsAdapter
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
