@@ -13,16 +13,14 @@ The app first lists a set of questions which are available in the JSON file. Use
 - Loads Latex Syntax using MathJax
 
 ## Screenshots
-![Screenshot 1](./Screenshots/0.png)
-<img src="./Screenshots/0.png" width="48">
-![Screenshot 2](./Screenshots/1.png)
-![Screenshot 3](./Screenshots/2.png)
-![Screenshot 4](./Screenshots/3.png)
-![Screenshot 5](./Screenshots/4.png)
-![Screenshot 6](./Screenshots/5.png)
-![Screenshot 7](./Screenshots/6.png)
-![Screenshot 8](./Screenshots/7.png)
-
+<img src="./Screenshots/0.png" width="300">
+<img src="./Screenshots/1.png" width="300">
+<img src="./Screenshots/2.png" width="300">
+<img src="./Screenshots/3.png" width="300">
+<img src="./Screenshots/4.png" width="300">
+<img src="./Screenshots/5.png" width="300">
+<img src="./Screenshots/6.png" width="300">
+<img src="./Screenshots/7.png" width="300">
 
 [Video Demo](https://photos.app.goo.gl/fQ2PrBrJjyEfgpTW9)
 
