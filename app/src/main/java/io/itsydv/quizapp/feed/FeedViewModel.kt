@@ -10,6 +10,9 @@ import io.itsydv.quizapp.models.QuestionModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+
+// Using ViewModel to store and manage UI-related data in a lifecycle conscious way.
+// as ViewModel survives configuration changes.
 class FeedViewModel(context: Context): ViewModel() {
 
     private val questionRepo: QuestionsRepo

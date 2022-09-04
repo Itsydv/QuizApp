@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+// converting latex to WebView using MathJax Script
 fun loadData(webView: WebView, text: String) {
     webView.loadDataWithBaseURL("",  text, "text/html", "utf-8", null)
 }

@@ -1,5 +1,6 @@
 package io.itsydv.quizapp
 
+// Using MathJax Script to render LaTeX
 class Utils {
     companion object{
         var JS_FILES = "<script>\n" +
@@ -19,6 +20,7 @@ class Utils {
     }
 }
 
+// Resource class to store the current state of our request
 sealed class Resource<T>(
     val data: T? = null,
     val message: String? = null

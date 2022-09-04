@@ -8,16 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import io.itsydv.quizapp.databinding.ItemQuestionPreviewBinding
 import io.itsydv.quizapp.models.QuestionModel
 
+// Adapter for the recycler view in the feed fragment
 class AllQuestionsAdapter(val listener: (QuestionModel) -> Unit): RecyclerView.Adapter<AllQuestionsAdapter.QuestionsViewHolder>() {
 
     inner class QuestionsViewHolder(val binding: ItemQuestionPreviewBinding): RecyclerView.ViewHolder(binding.root) {
         init {
+
+            // When the user clicks on a question, the listener is called
             itemView.setOnClickListener {
                 listener.invoke(differ.currentList[adapterPosition])
             }
         }
     }
 
+    // DiffUtil is used to calculate the difference between two lists
+    // This improves the performance of the recycler view
     private val diffCallBack = object: DiffUtil.ItemCallback<QuestionModel>() {
         override fun areItemsTheSame(oldItem: QuestionModel, newItem: QuestionModel): Boolean {
             return oldItem.id == newItem.id

@@ -14,8 +14,12 @@ class QuestionsRepo(private val questionsDao: QuestionsDao) {
         questionsDao.updateQuestion(questionModel)
     }
 
+    // This function is used to get the questions from the json file and save it to the database
     suspend fun loadQuestions(context: Context) {
         var questions = getQuestions(context)
+
+        // reversing the list to get the questions of recent year first
+        // also indexing the questions for passing the questionNumber between fragments
         questions = questions.reversed().mapIndexed { index, question ->
             question.questionIndex = index
             question
@@ -23,6 +27,7 @@ class QuestionsRepo(private val questionsDao: QuestionsDao) {
         questionsDao.insertQuestions(questions)
     }
 
+    // loading questions from json file
     private fun getQuestions(context: Context): List<QuestionModel> {
         val gson = Gson()
         val jsonString = context.assets.open("questions.json").bufferedReader().use { it.readText() }

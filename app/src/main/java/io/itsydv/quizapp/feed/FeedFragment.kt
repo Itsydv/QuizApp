@@ -99,6 +99,7 @@ class FeedFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
+    // OnItemSelected Listener for the spinner
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         when (pos) {
             0 -> {
@@ -116,6 +117,7 @@ class FeedFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.shimmerViewContainer.startShimmer()
     }
 
+    // Pausing Shimmer Effect to not waste resources
     override fun onPause() {
         binding.shimmerViewContainer.stopShimmer()
         super.onPause()
