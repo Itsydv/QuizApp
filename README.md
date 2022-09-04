@@ -14,6 +14,7 @@ The app first lists a set of questions which are available in the JSON file. Use
 
 ## Screenshots
 ![Screenshot 1](./Screenshots/0.png)
+<img src="./Screenshots/0.png" width="48">
 ![Screenshot 2](./Screenshots/1.png)
 ![Screenshot 3](./Screenshots/2.png)
 ![Screenshot 4](./Screenshots/3.png)
