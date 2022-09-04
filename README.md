@@ -13,7 +13,7 @@ The app first lists a set of questions which are available in the JSON file. Use
 - Loads Latex Syntax using MathJax
 
 ## Screenshots
-![Screenshot 1](https://github.com/Itsydv/QuizApp/Screenshots/0.png?raw=true)
+![Screenshot 1](./Screenshots/0.png)
 ![Screenshot 2](https://github.com/Itsydv/QuizApp/Screenshots/1.png?raw=true)
 ![Screenshot 3](https://github.com/Itsydv/QuizApp/Screenshots/2.png?raw=true)
 ![Screenshot 4](https://github.com/Itsydv/QuizApp/Screenshots/3.png?raw=true)
