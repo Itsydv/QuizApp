@@ -10,9 +10,20 @@ The app first lists a set of questions which are available in the JSON file. Use
 - Shows Loading effect whenever app loads data (Uses facebook shimmer library)
 - Stores Record of Attempted and Unattempted Questions locally in device storage (using room library for this purpose)
 - App is purely Built-in kotlin hence concise syntax
-- 
+- Loads Latex Syntax using MathJax
 
-[![Video Demo]](https://photos.app.goo.gl/fQ2PrBrJjyEfgpTW9)
+## Screenshots
+![Screenshot 1](https://github.com/Itsydv/QuizApp/Screenshots/0.png?raw=true)
+![Screenshot 2](https://github.com/Itsydv/QuizApp/Screenshots/1.png?raw=true)
+![Screenshot 3](https://github.com/Itsydv/QuizApp/Screenshots/2.png?raw=true)
+![Screenshot 4](https://github.com/Itsydv/QuizApp/Screenshots/3.png?raw=true)
+![Screenshot 5](https://github.com/Itsydv/QuizApp/Screenshots/4.png?raw=true)
+![Screenshot 6](https://github.com/Itsydv/QuizApp/Screenshots/5.png?raw=true)
+![Screenshot 7](https://github.com/Itsydv/QuizApp/Screenshots/6.png?raw=true)
+![Screenshot 8](https://github.com/Itsydv/QuizApp/Screenshots/7.png?raw=true)
+
+
+[Video Demo](https://photos.app.goo.gl/fQ2PrBrJjyEfgpTW9)
 
 ### Library and Dependencies Used 🔗
 - Facebook Shimmer library
