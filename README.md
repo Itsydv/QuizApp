@@ -14,13 +14,13 @@ The app first lists a set of questions which are available in the JSON file. Use
 
 ## Screenshots
 ![Screenshot 1](./Screenshots/0.png)
-![Screenshot 2](https://github.com/Itsydv/QuizApp/Screenshots/1.png?raw=true)
-![Screenshot 3](https://github.com/Itsydv/QuizApp/Screenshots/2.png?raw=true)
-![Screenshot 4](https://github.com/Itsydv/QuizApp/Screenshots/3.png?raw=true)
-![Screenshot 5](https://github.com/Itsydv/QuizApp/Screenshots/4.png?raw=true)
-![Screenshot 6](https://github.com/Itsydv/QuizApp/Screenshots/5.png?raw=true)
-![Screenshot 7](https://github.com/Itsydv/QuizApp/Screenshots/6.png?raw=true)
-![Screenshot 8](https://github.com/Itsydv/QuizApp/Screenshots/7.png?raw=true)
+![Screenshot 2](./Screenshots/1.png)
+![Screenshot 3](./Screenshots/2.png)
+![Screenshot 4](./Screenshots/3.png)
+![Screenshot 5](./Screenshots/4.png)
+![Screenshot 6](./Screenshots/5.png)
+![Screenshot 7](./Screenshots/6.png)
+![Screenshot 8](./Screenshots/7.png)
 
 
 [Video Demo](https://photos.app.goo.gl/fQ2PrBrJjyEfgpTW9)
