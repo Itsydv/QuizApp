@@ -31,7 +31,6 @@ class FeedViewModel(context: Context): ViewModel() {
     fun getUnAttemptedQuestions() {
         _questions.postValue(Resource.Loading())
         viewModelScope.launch {
-            delay(800)
             val data =  questionRepo.unAttemptedQuestions()
             _questions.postValue(Resource.Success(data))
         }
@@ -40,7 +39,6 @@ class FeedViewModel(context: Context): ViewModel() {
     fun getAttemptedQuestions() {
         _questions.postValue(Resource.Loading())
         viewModelScope.launch {
-            delay(800)
             val data =  questionRepo.attemptedQuestions()
             _questions.postValue(Resource.Success(data))
         }
