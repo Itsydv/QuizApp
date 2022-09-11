@@ -25,3 +25,6 @@ The app first lists a set of questions which are available in the JSON file. Use
 - Navigation Components
 - Room Library
 - Material Design 3
+
+## Known Issues
+- Not loading Latex in some cases
